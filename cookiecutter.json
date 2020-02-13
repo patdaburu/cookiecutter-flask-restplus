@@ -1,0 +1,38 @@
+{
+  "project_name": "ClickCLI",
+  "package_name": "{{ cookiecutter.project_name|lower|replace(' ', '_')|replace('-', '_') }}",
+  "cli_name": "{{ cookiecutter.package_name }}",
+  "project_version": "0.0.1",
+  "project_description": "This is my API project.",
+  "python_version": [
+    "3.6",
+    "3.7",
+    "3.8"
+  ],
+  "virtualenv": [
+    "virtualenv",
+    "python3"
+  ],
+  "linter": [
+    "flake8",
+    "pylint"
+  ],
+  "sphinx_theme": [
+    "alabaster",
+    "readthedocs"
+  ],
+  "auto_readme": [
+    "None",
+    "pandoc"
+  ],
+  "author_name": "my_name",
+  "author_email": "my_email@gmail.com",
+  "license": [
+    "MIT",
+    "BSD",
+    "GPLv3",
+    "Apache Software License 2.0",
+    "None"
+  ],
+  "github_user": "my_github_username"
+}
