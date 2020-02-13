@@ -23,12 +23,12 @@ ThingModel: Model = api.model(
     }
 )  #: the Thing model
 
-ThingRequestParser = reqparse.RequestParser()
-thing.add_argument(
+ThingArgs = reqparse.RequestParser()
+ThingArgs.add_argument(
     'name',
     type=str,
     required=True
-)  #: defines the parameters when you request a thing
+)  #: defines request parameters for Things
 
 THINGS = {
         'red': {'name': 'red'},
@@ -36,8 +36,9 @@ THINGS = {
 }  #: FOR DEMONSTRATION: a set of Things
 
 @api.route('/')
-class ThingResource(Resource):
-    """Perform general CRUD operations."""
+class ThingsResource(Resource):
+    """Perform general CRUD operations on all the Things."""
+
     @api.doc(params={})
     @api.marshal_with(ThingModel, envelope='things')
     def get(self):  # pylint: disable=no-self-use
@@ -45,3 +46,14 @@ class ThingResource(Resource):
         return [
             v for k, v in THINGS.items()
         ], 200
+
+
+@api.route('/<string:name>')
+class ThingResource(Resource):
+    """Perform general CRUD operations on individual Things."""
+
+    @api.doc(params={})
+    @api.marshal_with(ThingModel)
+    def get(self, name):  # pylint: disable=no-self-use
+        """Get a thing by name."""
+        return THINGS[name], 200
