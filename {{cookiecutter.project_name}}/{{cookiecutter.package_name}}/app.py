@@ -11,7 +11,6 @@ import logging
 from logging.config import fileConfig
 import os
 import werkzeug
-werkzeug.cached_property = werkzeug.utils.cached_property
 from flask import Blueprint, Flask
 from flask_cors import CORS
 from . import config

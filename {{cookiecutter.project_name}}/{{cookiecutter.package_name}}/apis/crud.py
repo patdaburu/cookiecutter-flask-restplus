@@ -7,8 +7,8 @@ Simple CRUD operations for demonstration purposes.
 .. currentmodule:: {{cookiecutter.package_name}}.apis.info
 .. moduleauthor:: {{cookiecutter.author_name}} <{{cookiecutter.author_email}}>
 """
-from flask_restplus import Namespace, reqparse, Resource, fields
-from flask_restplus.model import Model
+from flask_restx import Namespace, reqparse, Resource, fields
+from flask_restx.model import Model
 from .. import __version__
 
 api = Namespace('crud', description='Simple CRUD operations.')
@@ -34,6 +34,7 @@ THINGS = {
         'red': {'name': 'red'},
         'blue': {'name': 'blue'}
 }  #: FOR DEMONSTRATION: a set of Things
+
 
 @api.route('/')
 class ThingsResource(Resource):

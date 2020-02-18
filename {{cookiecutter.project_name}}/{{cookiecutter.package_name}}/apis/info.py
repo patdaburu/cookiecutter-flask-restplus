@@ -7,8 +7,8 @@ Information about this API.
 .. currentmodule:: {{cookiecutter.package_name}}.apis.info
 .. moduleauthor:: {{cookiecutter.author_name}} <{{cookiecutter.author_email}}>
 """
-from flask_restplus import Namespace, Resource, fields
-from flask_restplus.model import Model
+from flask_restx import Namespace, Resource, fields
+from flask_restx.model import Model
 from .. import __version__
 
 api = Namespace('info', description='Get general information about the API.')

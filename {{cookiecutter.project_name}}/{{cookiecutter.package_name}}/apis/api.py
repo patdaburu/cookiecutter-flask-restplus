@@ -9,7 +9,7 @@ API descriptions.
 """
 import json
 import logging
-from flask_restplus import Api
+from flask_restx import Api
 from werkzeug.exceptions import HTTPException
 from .. import __version__
 from .crud import api as crud

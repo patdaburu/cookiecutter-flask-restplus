@@ -50,7 +50,7 @@ setup(
     install_requires=[
         # Include dependencies here.
         'click>=7.0,<8',
-        'flask-restplus>=0.12.1,<1',
+        'flask-restx>=0.1.1,<0.2',
         'flask-cors>=3.0.7,<3.1',
         'gunicorn>=19.9.0,<20'
     ],

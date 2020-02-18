@@ -12,7 +12,7 @@ from pathlib import Path
 import os
 import tempfile
 
-TRUTHY = ['true']  #: strings that indicate the boolean value ``True``
+TRUTHY = {'true'}  #: strings that indicate the boolean value ``True``
 
 
 def is_truthy(s: str) -> bool:
