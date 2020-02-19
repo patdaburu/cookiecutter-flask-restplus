@@ -19,11 +19,9 @@ can be used as a handy facility for running the task from a command line.
 """
 import logging
 import os
-import sys
 import click
-from flask import Flask
-from sqlalchemy_utils import database_exists
 from .__init__ import __version__
+from .app import initdb
 
 LOGGING_LEVELS = {
     0: logging.NOTSET,
@@ -154,7 +152,7 @@ def run(
 
     # ---------------- PRE-FLIGHT CHECK ----------------
 
-        # Perform any additional tasks that are required before starting the
+    # Perform any additional tasks that are required before starting the
     # Flask application.
 
     initdb()
