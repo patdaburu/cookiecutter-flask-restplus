@@ -2,7 +2,7 @@
 
 # Cookiecutter Flask-RESTPlus
 
-### Powered by [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/), Cookiecutter Flask-RESTPlus is a framework for jumpstarting production-ready [Flask-RESTPlus](https://flask-restplus.readthedocs.io/en/stable/) projects quickly.
+### Powered by [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/), Cookiecutter Flask-RESTX is a framework for jumpstarting production-ready [Flask-RESTX](https://flask-restx.readthedocs.io/en/latest/) projects quickly.
 
 </div>
 
@@ -10,14 +10,14 @@
 
 The project you create from this template has a few features to be aware of including:
 
-* A [Flask-RESTPlus](https://flask-restplus.readthedocs.io/en/stable/) application skeleton
+* A [Flask-RESTX](https://flask-restx.readthedocs.io/en/latest/) application skeleton
 * A [Click](http://click.pocoo.org/5/) application to run it
 * [Pytest](https://docs.pytest.org/en/latest/) unit tests
 * A documentation project based on [Sphinx](http://www.sphinx-doc.org/en/master/usage/quickstart.html).
 
 ## Usage
 
-Let's pretend you want to create a new API called "awesome-api".  You could create a new project and put all the pieces together from scratch, but why not let cookiecutter take care of all that? 
+Let's pretend you want to create a new API called "awesome-api".  You could create a new project and put all the pieces together from scratch, but why not let cookiecutter take care of all that?
 
 First, get Cookiecutter. Trust me, it's awesome:
 
@@ -125,7 +125,7 @@ If you get the template help message, you're ready to start building.
 
 Would you like to learn more?  Check out the links below!
 
-* [Flask-RESTPlus](https://flask-restplus.readthedocs.io/en/stable/)
+* [Flask-RESTX](https://flask-restx.readthedocs.io/en/latest/)
 * [Cookiecutter Project Documentation](https://cookiecutter.readthedocs.io/en/latest/)
 * [Cookiecutter: Project Templates Made Easy](https://www.pydanny.com/cookie-project-templates-made-easy.html)
 * [Click](http://click.pocoo.org/5/)

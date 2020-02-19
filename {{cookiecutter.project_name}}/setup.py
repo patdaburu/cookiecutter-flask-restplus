@@ -52,6 +52,8 @@ setup(
         'click>=7.0,<8',
         'flask-restx>=0.1.1,<0.2',
         'flask-cors>=3.0.7,<3.1',
+        'Flask-SQLAlchemy>=2.4.1,<3',
+        'SQLAlchemy-Utils>=0.36.1,<1',
         'gunicorn>=19.9.0,<20'
     ],
     entry_points="""

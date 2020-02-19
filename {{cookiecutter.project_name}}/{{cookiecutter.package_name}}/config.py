@@ -27,20 +27,20 @@ def is_truthy(s: str) -> bool:
     return s.strip().lower() in TRUTHY
 
 
-class Defaults:
-    """
-    These are the default configuration settings.
-    """
-    DEBUG = False
-    TESTING = False
-
-
 class Config(object):
     """
     This is the base class for configuration objects.
     """
-    DEBUG = True if os.environ.get('DEBUG') == 'True' else False
-    TESTING = True if os.environ.get('TESTING') == 'True' else False
+    DEBUG = True
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = os.environ.get(
+        'SQLALCHEMY_DATABASE_URI',
+        'sqlite:////tmp/{{cookiecutter.package_name}}.db'
+    )
+    SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get(
+        'SQLALCHEMY_TRACK_MODIFICATIONS',
+        False
+    )
 
 
 class ProductionConfig(Config):

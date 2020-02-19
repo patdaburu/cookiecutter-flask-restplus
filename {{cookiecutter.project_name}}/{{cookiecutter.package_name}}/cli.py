@@ -21,7 +21,8 @@ import logging
 import os
 import sys
 import click
-import {{cookiecutter.package_name}}.version
+from flask import Flask
+from sqlalchemy_utils import database_exists
 from .__init__ import __version__
 
 LOGGING_LEVELS = {
@@ -121,6 +122,11 @@ def cli(info: Info, verbose: int):
         'being restarted'
     )
 )
+@click.option(
+    '--dburi', '-d',
+    type=str,
+    help='the database URI'
+)
 @pass_info
 def run(
         info: Info,
@@ -129,7 +135,8 @@ def run(
         host: str,
         port: int,
         flask_workers: int,
-        timeout: int
+        timeout: int,
+        dburi: str
 ):
     """
     Run the server.
@@ -141,11 +148,16 @@ def run(
         os.environ['FLASK_ENV'] = flask_env
     if static_folder:
         os.environ['STATIC_FOLDER'] = static_folder
+    # Set SQLAlchemy envrionment variables from the arguments.
+    if dburi:
+        os.environ['SQLALCHEMY_DATABASE_URI'] = dburi
 
     # ---------------- PRE-FLIGHT CHECK ----------------
 
-    # Perform any additional tasks that are requred before starting the
+        # Perform any additional tasks that are required before starting the
     # Flask application.
+
+    initdb()
 
     # ------------------ START FLASK -------------------
 

@@ -7,12 +7,13 @@ The Flask application.
 .. currentmodule:: {{cookiecutter.package_name}}.app
 .. moduleauthor:: {{cookiecutter.author_name}} <{{cookiecutter.author_email}}>
 """
+import importlib
 import logging
-from logging.config import fileConfig
 import os
-import werkzeug
 from flask import Blueprint, Flask
 from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy_utils import database_exists
 from . import config
 from .apis import api, API_ROOT
 
@@ -22,6 +23,13 @@ _config = config.get_object_name()
 # Create the Flask application.
 app = Flask(__name__, static_url_path='')  #: the core Flask application
 app.config.from_object(_config)
+
+# Start up SQLAlchemy.
+db = SQLAlchemy(app)
+# Import the models.
+importlib.import_module(
+    '{{cookiecutter.package_name}}.models'
+)
 
 # Create this module's logger.
 _logger: logging.Logger = logging.getLogger(__name__)  #: the module logger
@@ -48,3 +56,9 @@ if 'STATIC_FOLDER' in os.environ:
 def root():
     """Serve the default file."""
     return app.send_static_file('index.html')
+
+
+def initdb():
+    """Initialize the database (if it hasn't already been initialized)."""
+    if not database_exists(app.config['SQLALCHEMY_DATABASE_URI']):
+        db.create_all()
